@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{891FE63F-B71D-4A45-AB03-877B23BD5AB2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NajotTalim.HR.DataAcces", "NajotTalim.HR.DataAcces\NajotTalim.HR.DataAcces.csproj", "{48BB4833-B029-43B7-B33A-1ABABA7FDFC9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9537788E-B599-4191-B918-2016B5D4FE00}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{891FE63F-B71D-4A45-AB03-877B23BD5AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{891FE63F-B71D-4A45-AB03-877B23BD5AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{891FE63F-B71D-4A45-AB03-877B23BD5AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{891FE63F-B71D-4A45-AB03-877B23BD5AB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48BB4833-B029-43B7-B33A-1ABABA7FDFC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48BB4833-B029-43B7-B33A-1ABABA7FDFC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48BB4833-B029-43B7-B33A-1ABABA7FDFC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48BB4833-B029-43B7-B33A-1ABABA7FDFC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F78AE5F-0D69-4AD2-8306-39AF2859E20B}
+	EndGlobalSection
+EndGlobal
