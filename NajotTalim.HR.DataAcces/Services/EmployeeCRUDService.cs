@@ -1,18 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NajotTalim.HR.DataAcces.Services
+﻿namespace NajotTalim.HR.DataAcces.Services
 {
     public class EmployeeCRUDService : IGenericCRUDService<EmployeeModel>
     {
         private readonly IEmployeeRepasitory _employeeRepasitory;
         public EmployeeCRUDService(IEmployeeRepasitory employeeRepasitory)
         {
-            _employeeRepasitory = employeeRepasitory;     
+            _employeeRepasitory = employeeRepasitory;
         }
         public async Task<EmployeeModel> Create(EmployeeModel model)
         {
@@ -20,10 +13,11 @@ namespace NajotTalim.HR.DataAcces.Services
             {
                 Name = model.Name,
                 Department = model.Department,
-                Email = model.Email,
-               
+                Email = model.Email
+
+
             };
-            var createdEmployee= await _employeeRepasitory.CreateEmployee(employee);
+            var createdEmployee = await _employeeRepasitory.CreateEmployee(employee);
             var result = new EmployeeModel
             {
                 Name = createdEmployee.Name,
@@ -37,18 +31,18 @@ namespace NajotTalim.HR.DataAcces.Services
 
         public async Task<bool> Delete(int id)
         {
-           return await _employeeRepasitory.DeleteEmployee(id);
+            return await _employeeRepasitory.DeleteEmployee(id);
         }
 
         public async Task<EmployeeModel> Get(int id)
         {
-            var employee=await _employeeRepasitory.GetEmployee(id);
+            var employee = await _employeeRepasitory.GetEmployee(id);
             var model = new EmployeeModel
             {
                 Id = employee.Id,
                 Name = employee.Name,
                 Department = employee.Department,
-                Email = employee.Email,
+                Email = employee.Email
             };
             return model;
         }
@@ -61,7 +55,7 @@ namespace NajotTalim.HR.DataAcces.Services
             {
                 var model = new EmployeeModel
                 {
-                  
+
                     Name = employee.Name,
                     Department = employee.Department,
                     Email = employee.Email,
@@ -79,9 +73,10 @@ namespace NajotTalim.HR.DataAcces.Services
                 Name = model.Name,
                 Department = model.Department,
                 Email = model.Email,
+                Id=model.Id
 
             };
-            var updatedEmployee = await _employeeRepasitory.UpdateEmployee(id,employee);
+            var updatedEmployee = await _employeeRepasitory.UpdateEmployee(id, employee);
             var result = new EmployeeModel
             {
                 Name = updatedEmployee.Name,

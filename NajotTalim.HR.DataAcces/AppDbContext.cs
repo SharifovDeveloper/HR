@@ -1,13 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-namespace NajotTalim.HR.DataAcces
+using NajotTalim.HR.DataAcces;
 
+namespace NajotTalim.HR.DataAccess
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> dbContextOption) : base(dbContextOption)
+        public AppDbContext(DbContextOptions<AppDbContext> dbContextOptions) : base(dbContextOptions)
         {
-                
+
         }
-        public Dbset<Employee> Employees { get; set; }
+
+        public DbSet<Employee> Employees { get; set; } // Use DbSet<Employee> here
     }
 }
