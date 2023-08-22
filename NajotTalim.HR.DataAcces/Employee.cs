@@ -2,9 +2,10 @@
 {
     public class Employee
     {
-        public string Department { get; internal set; }
-        public string Name { get; internal set; }
-        public int Id { get; internal set; }
-        public string Email { get; internal set; }
+        public int Id { get; set; }
+        public string Department { get;  set; }
+        public string Name { get;  set; }
+       
+        public string Email { get;  set; }
     }
 }
