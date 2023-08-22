@@ -10,6 +10,6 @@ namespace NajotTalim.HR.DataAccess
 
         }
 
-        public DbSet<Employee> Employees { get; set; } // Use DbSet<Employee> here
+        public DbSet<Employee> Employees { get; set; } 
     }
 }
