@@ -1,4 +1,8 @@
-﻿namespace NajotTalim.HR.DataAcces.Services
+﻿using NajotTalim.HR.DataAcces.Entities;
+using NajotTalim.HR.DataAcces;
+using WebApplication1.Models;
+
+namespace NajotTalim.HR.DataAcces.Services
 {
     public class EmployeeCRUDService : IGenericCRUDService<EmployeeModel>
     {
@@ -18,7 +22,7 @@
 
             };
             var createdEmployee = await _employeeRepasitory.CreateEmployee(employee);
-            var result = new EmployeeModel
+            var result = new AddressModel
             {
                 Name = createdEmployee.Name,
                 Department = createdEmployee.Department,
@@ -34,10 +38,10 @@
             return await _employeeRepasitory.DeleteEmployee(id);
         }
 
-        public async Task<EmployeeModel> Get(int id)
+        public async Task<AddressModel> Get(int id)
         {
             var employee = await _employeeRepasitory.GetEmployee(id);
-            var model = new EmployeeModel
+            var model = new AddressModel
             {
                 Id = employee.Id,
                 Name = employee.Name,
@@ -47,13 +51,13 @@
             return model;
         }
 
-        public async Task<IEnumerable<EmployeeModel>> GetAll()
+        public async Task<IEnumerable<AddressModel>> GetAll()
         {
-            var result = new List<EmployeeModel>();
+            var result = new List<AddressModel>();
             var employees = await _employeeRepasitory.GetEmployees();
             foreach (var employee in employees)
             {
-                var model = new EmployeeModel
+                var model = new AddressModel
                 {
 
                     Name = employee.Name,
@@ -66,7 +70,7 @@
             return result;
         }
 
-        public async Task<EmployeeModel> Update(int id, EmployeeModel model)
+        public async Task<AddressModel> Update(int id, AddressModel model)
         {
             var employee = new Employee
             {
@@ -77,7 +81,7 @@
 
             };
             var updatedEmployee = await _employeeRepasitory.UpdateEmployee(id, employee);
-            var result = new EmployeeModel
+            var result = new AddressModel
             {
                 Name = updatedEmployee.Name,
                 Department = updatedEmployee.Department,
@@ -88,4 +92,5 @@
             return result;
         }
     }
-}
+
+  

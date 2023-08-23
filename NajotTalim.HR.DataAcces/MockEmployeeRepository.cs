@@ -1,4 +1,5 @@
-﻿using System.Collections.Concurrent;
+﻿using NajotTalim.HR.DataAcces.Entities;
+using System.Collections.Concurrent;
 
 namespace NajotTalim.HR.DataAcces
 {

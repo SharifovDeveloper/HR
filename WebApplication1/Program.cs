@@ -3,6 +3,7 @@ using NajotTalim.HR.DataAcces;
 using Microsoft.EntityFrameworkCore;
 using NajotTalim.HR.DataAcces.Services;
 using NajotTalim.HR.DataAccess;
+using WebApplication1.Models;
 
 namespace WebApplication1
 {
@@ -15,7 +16,8 @@ namespace WebApplication1
             // Add services to the container.
             builder.Services.AddDbContextPool<AppDbContext> (options => options.UseSqlServer(builder.Configuration.GetConnectionString("EmployeeDb")));
             builder.Services.AddControllers();
-            builder.Services.AddScoped<IGenericCRUDService<EmployeeModel>, EmployeeCRUDService>();
+            builder.Services.AddScoped<IGenericCRUDService<NajotTalim.HR.DataAcces.AddressModel>, EmployeeCRUDService>();
+            builder.Services.AddScoped<IGenericCRUDService<Models.AddressModel>, AddressCRUDService>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NajotTalim.HR.DataAcces.Entities;
 using NajotTalim.HR.DataAccess;
 using System.Runtime.InteropServices;
 
 namespace NajotTalim.HR.DataAcces
 {
-    public class SqlServerEmployeeRepository : IEmployeeRepasitory
+    public class SqlServerEmployeeRepository : IAddressRepository
     {
         private readonly AppDbContext _dbContext;
         public SqlServerEmployeeRepository(AppDbContext dbContext)
