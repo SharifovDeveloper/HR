@@ -10,11 +10,11 @@ namespace WebApplication1.Models
         public string Name { get; set; }
         public string Email { get; set; }
 
-        // Foreign key for the Address
-        [ForeignKey(nameof(Address))]
-        public int AddressId { get; set; }
+       // Foreign key for the Address
+       //[ForeignKey(nameof(Address))]
+       // public int AddressId { get; set; }
 
-        // Navigation property to the Address
-        public virtual Address Address { get; set; }
+       // // Navigation property to the Address
+       // public virtual Address Address { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace NajotTalim.HR.DataAcces.Services
 
             };
             var createdEmployee = await _employeeRepasitory.CreateEmployee(employee);
-            var result = new AddressModel
+            var result = new EmployeeModel
             {
                 Name = createdEmployee.Name,
                 Department = createdEmployee.Department,
@@ -38,10 +38,10 @@ namespace NajotTalim.HR.DataAcces.Services
             return await _employeeRepasitory.DeleteEmployee(id);
         }
 
-        public async Task<AddressModel> Get(int id)
+        public async Task<EmployeeModel> Get(int id)
         {
             var employee = await _employeeRepasitory.GetEmployee(id);
-            var model = new AddressModel
+            var model = new EmployeeModel
             {
                 Id = employee.Id,
                 Name = employee.Name,
@@ -51,13 +51,13 @@ namespace NajotTalim.HR.DataAcces.Services
             return model;
         }
 
-        public async Task<IEnumerable<AddressModel>> GetAll()
+        public async Task<IEnumerable<EmployeeModel>> GetAll()
         {
-            var result = new List<AddressModel>();
+            var result = new List<EmployeeModel>();
             var employees = await _employeeRepasitory.GetEmployees();
             foreach (var employee in employees)
             {
-                var model = new AddressModel
+                var model = new EmployeeModel
                 {
 
                     Name = employee.Name,
@@ -70,18 +70,18 @@ namespace NajotTalim.HR.DataAcces.Services
             return result;
         }
 
-        public async Task<AddressModel> Update(int id, AddressModel model)
+        public async Task<EmployeeModel> Update(int id, EmployeeModel model)
         {
             var employee = new Employee
             {
                 Name = model.Name,
                 Department = model.Department,
                 Email = model.Email,
-                Id=model.Id
+                Id = model.Id
 
             };
             var updatedEmployee = await _employeeRepasitory.UpdateEmployee(id, employee);
-            var result = new AddressModel
+            var result = new EmployeeModel
             {
                 Name = updatedEmployee.Name,
                 Department = updatedEmployee.Department,
@@ -92,5 +92,6 @@ namespace NajotTalim.HR.DataAcces.Services
             return result;
         }
     }
+}
 
   

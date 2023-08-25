@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 
 namespace NajotTalim.HR.DataAcces
 {
-    public class SqlServerEmployeeRepository : IAddressRepository
+    public class EmployeeRepository : IEmployeeRepasitory
     {
         private readonly AppDbContext _dbContext;
-        public SqlServerEmployeeRepository(AppDbContext dbContext)
+        public EmployeeRepository(AppDbContext dbContext)
         {
             _dbContext = dbContext;
 
