@@ -7,12 +7,15 @@ namespace NajotTalim.HR.DataAcces.Services
     public class EmployeeCRUDService : IGenericCRUDService<EmployeeModel>
     {
         private readonly IEmployeeRepasitory _employeeRepasitory;
-        public EmployeeCRUDService(IEmployeeRepasitory employeeRepasitory)
+        private readonly IAddressRepository _addressRepository;
+        public EmployeeCRUDService(IEmployeeRepasitory employeeRepasitory, IAddressRepository addressRepository)
         {
             _employeeRepasitory = employeeRepasitory;
+            _addressRepository = addressRepository;
         }
         public async Task<EmployeeModel> Create(EmployeeModel model)
         {
+            var existingAddress = await _addressRepository.GetAddress(model.AddressId);
             var employee = new Employee
             {
                 Name = model.Name,
@@ -21,14 +24,17 @@ namespace NajotTalim.HR.DataAcces.Services
 
 
             };
+            if (existingAddress != null) 
+                employee.Address = existingAddress;
+
             var createdEmployee = await _employeeRepasitory.CreateEmployee(employee);
             var result = new EmployeeModel
             {
                 Name = createdEmployee.Name,
                 Department = createdEmployee.Department,
                 Email = createdEmployee.Email,
-                Id = createdEmployee.Id
-
+                Id = createdEmployee.Id,
+                AddressId= model.AddressId,
             };
             return result;
         }

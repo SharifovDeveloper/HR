@@ -5,6 +5,10 @@ using NajotTalim.HR.DataAcces.Services;
 using NajotTalim.HR.DataAccess;
 using WebApplication1.Models;
 using NajotTalim.HR.DataAcces.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace WebApplication1
 {
@@ -16,6 +20,36 @@ namespace WebApplication1
 
             // Add services to the container.
             builder.Services.AddDbContextPool<AppDbContext> (options => options.UseSqlServer(builder.Configuration.GetConnectionString("EmployeeDb")));
+            builder.Services.AddIdentity<AppUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+
+            })
+
+            .AddJwtBearer(options =>
+            {
+
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = builder.Configuration["JWT:ValiAudience"],
+                    ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"]))
+
+                };
+
+
+            });
+            
+          
             builder.Services.AddControllers();
             builder.Services.AddScoped<IGenericCRUDService<EmployeeModel>, EmployeeCRUDService>();
             builder.Services.AddScoped<IGenericCRUDService<AddressModel>, AddressCRUDService>();
@@ -35,7 +69,7 @@ namespace WebApplication1
             }
 
             app.UseHttpsRedirection();
-
+            app.UseAuthentication();    
             app.UseAuthorization();
 
 
