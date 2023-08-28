@@ -10,6 +10,7 @@ namespace WebApplication1.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public int AddressId { get; set; }
+        public string AccountNumber { get; set; }    
 
         // Foreign key for the Address
         //[ForeignKey(nameof(Address))]

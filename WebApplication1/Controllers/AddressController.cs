@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using NajotTalim.HR.DataAcces.Services;
 using NajotTalim.HR.DataAcces;
 using WebApplication1.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication1.Controllers
 {
@@ -18,6 +19,7 @@ namespace WebApplication1.Controllers
 
         // GET: api/<EmployeController>
         [HttpGet]
+        
         public async Task<IActionResult> Get()
         {
             return Ok(await _addressSvc.GetAll());
