@@ -1,6 +1,4 @@
 using HR.Services;
-using Microsoft.AspNetCore.Components.Forms;
-using WebApplication1.Services;
 
 namespace HR.API.Tests
 {
@@ -8,12 +6,12 @@ namespace HR.API.Tests
     {
         private readonly AccountNumberValidationService validationSvc;
 
-        public AccountNumberValidationTests()=> validationSvc = new AccountNumberValidationService();
+        public AccountNumberValidationTests() => validationSvc = new AccountNumberValidationService();
 
         [Fact]
         public void IsValid_ValidAccountNumber_ReturnsTrue()
         {
-             Assert.True(validationSvc.IsValid("123-1234567890-54"));
+            Assert.True(validationSvc.IsValid("123-1234567890-54"));
         }
 
         [Theory]
@@ -47,7 +45,7 @@ namespace HR.API.Tests
         [InlineData("123+1234567890-5445")]
         public void IsValid_InvalidDelimiters_ThrowArgumentExeption(string accountNumber)
         {
-            Assert.Throws<ArgumentException>(()=>validationSvc.IsValid(accountNumber));
+            Assert.Throws<ArgumentException>(() => validationSvc.IsValid(accountNumber));
         }
 
 

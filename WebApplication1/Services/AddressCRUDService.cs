@@ -1,5 +1,4 @@
 ﻿using NajotTalim.HR.DataAcces.Entities;
-using NajotTalim.HR.DataAcces;
 using WebApplication1.Models;
 
 namespace NajotTalim.HR.DataAcces.Services
@@ -17,7 +16,7 @@ namespace NajotTalim.HR.DataAcces.Services
             {
                 AddressLine1 = model.AddressLine1,
                 AddressLine2 = model.AddressLine2,
-                PostalCode=model.PostalCode,
+                PostalCode = model.PostalCode,
                 Country = model.Country,
                 City = model.City,
 
@@ -26,12 +25,12 @@ namespace NajotTalim.HR.DataAcces.Services
             var createdAddress = await _addressRepasitory.CreateAddress(address);
             var result = new AddressModel
             {
-                AddressLine1=createdAddress.AddressLine1,
-                AddressLine2=createdAddress.AddressLine2,
-                PostalCode=createdAddress.PostalCode,
-                Country=createdAddress.Country,
-                City=createdAddress.City,
-                Id=createdAddress.Id,
+                AddressLine1 = createdAddress.AddressLine1,
+                AddressLine2 = createdAddress.AddressLine2,
+                PostalCode = createdAddress.PostalCode,
+                Country = createdAddress.Country,
+                City = createdAddress.City,
+                Id = createdAddress.Id,
             };
             return result;
         }
@@ -49,10 +48,10 @@ namespace NajotTalim.HR.DataAcces.Services
                 Id = address.Id,
                 AddressLine1 = address.AddressLine1,
                 AddressLine2 = address.AddressLine2,
-                PostalCode=address.PostalCode,
+                PostalCode = address.PostalCode,
                 Country = address.Country,
                 City = address.City,
-             
+
             };
             return model;
         }
@@ -65,13 +64,13 @@ namespace NajotTalim.HR.DataAcces.Services
             {
                 var model = new AddressModel
                 {
-                    Id=adress.Id,
+                    Id = adress.Id,
                     AddressLine1 = adress.AddressLine1,
                     AddressLine2 = adress.AddressLine2,
-                    PostalCode=adress.PostalCode,
+                    PostalCode = adress.PostalCode,
                     Country = adress.Country,
                     City = adress.City,
-                   
+
                 };
                 result.Add(model);
             }
@@ -82,10 +81,10 @@ namespace NajotTalim.HR.DataAcces.Services
         {
             var address = new Address
             {
-                Id=model.Id,
-                AddressLine1=model.AddressLine1,
+                Id = model.Id,
+                AddressLine1 = model.AddressLine1,
                 AddressLine2 = model.AddressLine2,
-                PostalCode=model.PostalCode,
+                PostalCode = model.PostalCode,
                 Country = model.Country,
                 City = model.City,
 
@@ -93,12 +92,12 @@ namespace NajotTalim.HR.DataAcces.Services
             var updatedEmployee = await _addressRepasitory.UpdateAddress(id, address);
             var result = new AddressModel
             {
-               Id=address.Id,
-               AddressLine1=address.AddressLine1,
-               AddressLine2 = address.AddressLine2,
-               PostalCode=address.PostalCode,
-               Country = address.Country,
-               City = address.City,
+                Id = address.Id,
+                AddressLine1 = address.AddressLine1,
+                AddressLine2 = address.AddressLine2,
+                PostalCode = address.PostalCode,
+                Country = address.Country,
+                City = address.City,
 
             };
             return result;
