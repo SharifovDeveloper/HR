@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NajotTalim.HR.DataAcces.Entities;
 using NajotTalim.HR.DataAccess;
-using System.Runtime.InteropServices;
 
 namespace NajotTalim.HR.DataAcces
 {
@@ -21,9 +20,9 @@ namespace NajotTalim.HR.DataAcces
             return address;
         }
 
-       
 
-        public  async Task<bool> DeleteAddress(int id)
+
+        public async Task<bool> DeleteAddress(int id)
         {
             var address = await _dbContext.Addresses.FindAsync(id);
             if (address != null)
@@ -35,7 +34,7 @@ namespace NajotTalim.HR.DataAcces
             return false;
         }
 
-     
+
 
         public async Task<Address> GetAddress(int id)
         {
@@ -47,7 +46,7 @@ namespace NajotTalim.HR.DataAcces
             return await _dbContext.Addresses.ToListAsync();
         }
 
-       
+
 
         public async Task<Address> UpdateAddress(int id, Address address)
         {
@@ -57,6 +56,5 @@ namespace NajotTalim.HR.DataAcces
             return address;
         }
 
-      
     }
 }

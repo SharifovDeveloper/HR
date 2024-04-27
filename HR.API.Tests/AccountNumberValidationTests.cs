@@ -47,8 +47,5 @@ namespace HR.API.Tests
         {
             Assert.Throws<ArgumentException>(() => validationSvc.IsValid(accountNumber));
         }
-
-
-
     }
 }
